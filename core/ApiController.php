@@ -24,7 +24,7 @@ abstract class ApiController
 
         try {
             // Authenticate Request
-            // $this->authenticateApplication();
+            $this->authenticateApplication();
 
             // Log successful login audit
             $this->makeAudit('Success', 'Application logged in', 'Authentication');
@@ -100,11 +100,11 @@ abstract class ApiController
 
         // Throw exception if application was not found
         if ( $application['count'] == 0 ) {
-            $this->throwExceptionWithAudit('Failure', 'We were unable to find your application in our system', 404, 'Authentication');
+            $this->throwExceptionWithAudit('Failure', 'We were unable to find you in our system', 404, 'Authentication');
         }
 
         // Store application name
-        $this->appName = $application['data']['app_name'];
+        $this->appName = $application['data']['client_name'];
 
     }
 

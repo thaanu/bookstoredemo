@@ -20,6 +20,20 @@ class Book extends Model {
         return $this->rawQuery("SELECT * FROM $tbl")->getResults();
     }
 
+    public function selectPaginatedBooks( int $page = 1, $limit = 10 )
+    {
+        $pg = $page - 1;
+        $tbl = $this->tablename;
+        $rows = $this->rawQuery("SELECT * FROM $tbl LIMIT $pg, $limit")->getResults();
+        $records = [
+            'current_page' => $page,
+            'total_records' => null, // to figure out
+            'limit' => $limit
+        ];
+        $records['results'] = $rows['data'];
+        return $records;
+    }
+
     public function selectBookById( $bookId )
     {
         $tbl = $this->tablename;

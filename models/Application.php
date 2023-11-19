@@ -22,7 +22,7 @@ class Application extends Model {
     public function selectApplicationByAuthKey( string $authKey )
     {
         $tablename = $this->tablename;
-        $this->rawQuery("SELECT * FROM $tablename WHERE client_key = '$authKey'")->getRow();
+        return $this->rawQuery("SELECT * FROM $tablename WHERE client_key = '$authKey'")->getRow();
     }
 
 }
