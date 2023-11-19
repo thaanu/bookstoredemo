@@ -40,8 +40,15 @@
         {
             "label" : "API Documentation",
             "url" : "api-documentation",
-            "icon" : "book",
+            "icon" : "book-open",
             "permission" : "",
+            "sub" : []
+        },
+        {
+            "label" : "Books",
+            "url" : "books",
+            "icon" : "book",
+            "permission" : "MNG_BOOKS",
             "sub" : []
         }
     ],
