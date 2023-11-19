@@ -21,7 +21,18 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $this->view('admin-panel.dashboard.main');
+        $this->view('admin-panel.dashboard.main', [
+            'apps' => [
+                [
+                    'name' => 'API Documentation',
+                    'url' => 'api-documentation'
+                ],
+                [
+                    'name' => 'Books',
+                    'url' => 'books'
+                ]
+            ]
+        ]);
     }
     
 }
