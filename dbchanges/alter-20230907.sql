@@ -1,0 +1,2 @@
+-- 2023-09-07 11:52:58
+CREATE TABLE `tbl_appointments` (`appt_id` int AUTO_INCREMENT,`slot_number` varchar(255),`appt_number` varchar(255),`prn` varchar(255),`nid` varchar(255),`appt_dt` datetime,`token_number` varchar(255),`appt_type` varchar(255),`is_walkin` tinyint(4),`doctor_mcr` varchar(255),`appt_created_by` varchar(255),`appt_created_dt` datetime,`appt_status` varchar(255),`parent_appt_id` int, PRIMARY KEY (appt_id));

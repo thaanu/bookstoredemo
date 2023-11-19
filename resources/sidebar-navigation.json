@@ -1,0 +1,94 @@
+{
+    "main" : [
+        {
+            "label" : "Dashboard",
+            "icon" : "airplay",
+            "url" : "dashboard",
+            "permission" : "",
+            "sub" : []
+        },
+        {
+            "label" : "Audits",
+            "icon" : "folder",
+            "permission" : "MNG_AUDITS",
+            "sub" : [
+                {
+                    "label" : "Recent 1000",
+                    "url" : "audits"
+                },
+                {
+                    "label" : "Search",
+                    "url" : "audits/search"
+                }
+            ]
+        },
+        {
+            "label" : "Applications",
+            "icon" : "monitor",
+            "permission" : "MNG_APPLICATIONS",
+            "sub" : [
+                {
+                    "label" : "Active Applications",
+                    "url" : "applications"
+                },
+                {
+                    "label" : "New Application",
+                    "url" : "applications/create"
+                }
+            ]
+        },
+        {
+            "label" : "API Documentation",
+            "url" : "api-documentation",
+            "icon" : "book",
+            "permission" : "",
+            "sub" : []
+        }
+    ],
+    "IOT" : [
+        {
+            "label" : "Devices",
+            "icon" : "sun",
+            "url" : "devices",
+            "permission" : "MNG_DEVICES",
+            "sub" : []
+        },
+        {
+            "label" : "Locations",
+            "icon" : "home",
+            "url" : "locations",
+            "permission" : "MNG_DEVICES",
+            "sub" : []
+        }
+    ],
+    "administrative" : [
+        {
+            "label" : "Users",
+            "icon" : "user",
+            "url" : "users",
+            "permission" : "MNG_USERS",
+            "sub" : []
+        },
+        {
+            "label" : "Groups",
+            "icon" : "users",
+            "permission" : "MNG_GROUPS",
+            "url" : "groups",
+            "sub" : []
+        },
+        {
+            "label" : "Roles",
+            "icon" : "shield",
+            "permission" : "MNG_ROLES",
+            "url" : "roles",
+            "sub" : []
+        },
+        {
+            "label" : "Cronjobs",
+            "icon" : "clock",
+            "url" : "cronjobs",
+            "permission" : "MNG_CRONJOBS",
+            "sub" : []
+        }
+    ]
+}

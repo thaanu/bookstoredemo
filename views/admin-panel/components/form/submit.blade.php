@@ -1,0 +1,1 @@
+<button type="submit" id="{{ $id }}" name="{{ $name }}" class="btn btn-primary waves-effect waves-light">{{ $label }}</button>

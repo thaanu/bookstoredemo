@@ -1,0 +1,23 @@
+{
+    "name": "shan/adminportal.tthd.local",
+    "autoload": {
+        "psr-4": {
+            "Shan\\AdminportalTthdLocal\\": "src/"
+        },
+        "classmap" : [
+            "models/",
+            "services/"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Ahmed Shan",
+            "email": "ahmedshan16@gmail.com"
+        }
+    ],
+    "require": {
+        "jenssegers/blade": "^1.4",
+        "phpmailer/phpmailer": "^6.7",
+        "dash8x/dhiraagu-sms": "^0.4.0"
+    }
+}
