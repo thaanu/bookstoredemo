@@ -36,7 +36,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <div>&copy; <?php echo date('Y') ?>. Developed by <a href="https://www.codered.mv" class="text-danger" target="_blank">Codered</a></div>
+                                <div>&copy; <?php echo date('Y') ?>. Developed by <a href="https://www.ahmdshan.com" class="text-primary" target="_blank">Ahmed Shan</a></div>
                             </div>
                             <div class="col-md-6">
                                 <div class="d-none d-md-flex gap-4 align-item-center justify-content-md-end footer-links">
