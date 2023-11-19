@@ -22,9 +22,10 @@
                                 <h3>{{ $app['client_name'] }}</h3>
                                 <p><code>{{ $app['client_key'] }}</code></p>
                                 <p>
-                                    <a href="{{ cpanelPermalink('applications.revoke.' . $app['client_id']) }}" class="HFActionBtn"
-                                    data-title="Revoke Application?" data-text="You cannot undo this action." data-type="warning"
-                                    data-ns="{{ cpanelPermalink('api-clients') }}">Revoke</a>
+                                    <button data-url="{{ cpanelPermalink('api-clients/revoke/' . $app['client_id']) }}"
+                                        class="revoke-btn btn btn-primary" data-title="Revoke Client Access?"
+                                        data-text="You cannot undo this action." data-type="warning"
+                                        data-ns="{{ cpanelPermalink('api-clients') }}">Revoke</button>
                                 </p>
                             </div>
                         </div>
@@ -36,5 +37,42 @@
 
     </div>
 
+    <script>
+        let revokeBtns = document.querySelectorAll('.revoke-btn');
+        if (revokeBtns.length > 0) {
+            for (let i = 0; i < revokeBtns.length; i++) {
+                let btn = revokeBtns[i];
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    let dataset = e.target.dataset;
+
+                    Swal.fire({
+                        title: dataset.title,
+                        text: dataset.text,
+                        type: dataset.type,
+                        icon: dataset.type,
+                        dangerMode: true,
+                        showCancelButton: true,
+                        showConfirmButton: true,
+                        confirmButtonText: "Yes, revoke",
+                        closeOnConfirm: false,
+                    }).then( ( result ) => {
+                        if( result.isConfirmed ) {
+                            hfPostRequest(e.target.dataset.url).then(response => {
+                                if ( response.status == 200 ) {
+                                    hf_success_toast(response.textMessage);
+                                    window.location.reload();
+                                } else {
+                                    hf_error_toast(response.error);
+                                }
+                            });
+                        }
+                    });
+
+                });
+            }
+        }
+    </script>
 
 @endsection

@@ -79,28 +79,26 @@ class ApplicationsController extends Controller {
         try {
 
             if ( empty($appId) ) {
-                $this->throwExceptionWithAudit("Failure", "AppId is required", "Applications", "User");
+                throw new Exception('Client not available', 404);
             }
 
             $application = new Application( $appId );
-            $theApplication = $application->select();
+            $theApplication = $application->selectApplicationById();
 
             if ( $theApplication['count'] == 0 ) {
-                $this->throwExceptionWithAudit("Failure", "Application does not exist", "Applications", "User");
+                throw new Exception('Client not available', 404);
             }
 
             $removeApp = new Application( $appId );
 
             if ( ! $removeApp->delete() ) {
                 // Audit
-                $this->throwExceptionWithAudit("Failure", "Unable to revoke " . $theApplication['data']['app_name'], "Applications", "User");
+                throw new Exception('Unable to revoke client', 404);
             }
 
-            Audit::setAudit(NULL, 'User', 'Success', 'Applications', "Application " . $theApplication['data']['app_name'] . " revoked successfully", json_encode($theApplication));
-
             $this->formResponse = [
-                'status' => true,
-                'textMessage' => 'Application revoked'
+                'status' => 200,
+                'textMessage' => 'Client revoked'
             ];
 
         }

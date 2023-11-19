@@ -25,4 +25,11 @@ class Application extends Model {
         return $this->rawQuery("SELECT * FROM $tablename WHERE client_key = '$authKey'")->getRow();
     }
 
+    public function selectApplicationById()
+    {
+        $appId = $this->pkValue;
+        $tablename = $this->tablename;
+        return $this->rawQuery("SELECT * FROM $tablename WHERE client_id = $appId")->getRow();
+    }
+
 }
