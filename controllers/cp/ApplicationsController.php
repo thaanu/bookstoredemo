@@ -21,14 +21,14 @@ class ApplicationsController extends Controller {
 
     public function index()
     {
-        $this->view('applications.main', [
+        $this->view('admin-panel.applications.main', [
             'applications' => (new Application())->selectAll()
         ]);
     }
 
     public function create()
     {
-        $this->view('applications.create');
+        $this->view('admin-panel.applications.create');
     }
 
     public function store()
@@ -36,9 +36,9 @@ class ApplicationsController extends Controller {
         try {
 
             $formReq = [
-                'app_name' => [
+                'client_name' => [
                     'required' => true,
-                    'label' => 'Application Name'
+                    'label' => 'Client Name'
                 ]
             ];
 
@@ -47,40 +47,27 @@ class ApplicationsController extends Controller {
 
             if ( ! $validation->passed() ) {
                 $this->formResponse['error_fields'] = $validation->errors();
-
-                // Audit
-                $msg = 'Please check required fields';
-                Audit::setAudit(NULL, 'User', 'Failure', 'Applications', $msg, json_encode($this->formData));
-
-                throw new Exception($msg);
+                throw new Exception('Please check required fields');
             }
 
             $appAuthKey = md5(time());
 
             $application = new Application();
-            $application->setPayload('app_name', $this->formData['app_name']);
-            $application->setPayload('app_auth_key', $appAuthKey);
-            $application->setPayload('app_auth_dt', date('Y-m-d H:i:s'));
+            $application->setPayload('client_name', $this->formData['client_name']);
+            $application->setPayload('client_key', $appAuthKey);
 
             if ( ! $application->store() ) {
-
-                // Audit
-                $msg = 'Unable to create new application';
-                Audit::setAudit(NULL, 'User', 'Failure', 'Applications', $msg, json_encode($this->formData));
-
-                throw new Exception($msg);
+                throw new Exception('Unable to create new application');
             }
-
-            Audit::setAudit(NULL, 'User', 'Success', 'Applications', "Created application " . $this->formData['app_name'], json_encode($this->formData));
 
             $this->formResponse = [
                 'status' => true,
-                'textMessage' => 'Application created'
+                'textMessage' => 'Client created'
             ];
 
         }
         catch ( Exception $ex ) {
-            $this->formResponse['error'] = $ex->getMessage();
+            $this->setError( $ex->getMessage(), $ex->getCode() );
         }
         finally {
             $this->sendJsonResponse();

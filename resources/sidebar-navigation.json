@@ -23,19 +23,11 @@
             ]
         },
         {
-            "label" : "Applications",
+            "label" : "API Clients",
+            "url" : "api-clients",
             "icon" : "monitor",
-            "permission" : "MNG_APPLICATIONS",
-            "sub" : [
-                {
-                    "label" : "Active Applications",
-                    "url" : "applications"
-                },
-                {
-                    "label" : "New Application",
-                    "url" : "applications/create"
-                }
-            ]
+            "permission" : "MNG_CLIENTS",
+            "sub" : []
         },
         {
             "label" : "API Documentation",

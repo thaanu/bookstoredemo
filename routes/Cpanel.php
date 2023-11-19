@@ -25,10 +25,10 @@ Router::get('/cp/audits', 'AuditController@index');
 Router::get('/cp/audits/fetch', 'AuditController@fetch');
 
 // Applications
-Router::get('/cp/applications', 'ApplicationsController@index');
-Router::get('/cp/applications/create', 'ApplicationsController@create');
-Router::post('/cp/applications/create', 'ApplicationsController@store');
-Router::post('/cp/applications/revoke', 'ApplicationsController@destroy');
+Router::get('/cp/api-clients', 'ApplicationsController@index');
+Router::get('/cp/api-clients/create', 'ApplicationsController@create');
+Router::post('/cp/api-clients/create', 'ApplicationsController@store');
+Router::post('/cp/api-clients/revoke', 'ApplicationsController@destroy');
 
 // Books
 Router::get('/cp/books', 'BooksController@index');
