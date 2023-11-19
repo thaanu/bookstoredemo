@@ -16,6 +16,10 @@ Router::get('/cp/logout', 'SessionController@logout');
 Router::get('/cp/dashboard', 'DashboardController@index');
 Router::post('/cp/dashboard/data', 'DashboardController@fetchData');
 
+// Documentation
+Router::get('/cp/documentation', 'DocumentationController@index');
+Router::post('/cp/documentation/topic', 'DocumentationController@topic');
+
 // Profile
 Router::get('/cp/profile', 'ProfileController@index');
 Router::post('/cp/profile/ajax', 'ProfileController@ajaxHandler');

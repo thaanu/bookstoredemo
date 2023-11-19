@@ -24,8 +24,8 @@ class DashboardController extends Controller
         $this->view('admin-panel.dashboard.main', [
             'apps' => [
                 [
-                    'name' => 'API Documentation',
-                    'url' => 'api-documentation'
+                    'name' => 'Documentation',
+                    'url' => 'documentation'
                 ],
                 [
                     'name' => 'Books',

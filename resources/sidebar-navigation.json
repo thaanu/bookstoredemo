@@ -23,17 +23,17 @@
             ]
         },
         {
+            "label" : "Documentation",
+            "url" : "documentation",
+            "icon" : "book-open",
+            "permission" : "",
+            "sub" : []
+        },
+        {
             "label" : "API Clients",
             "url" : "api-clients",
             "icon" : "monitor",
             "permission" : "MNG_CLIENTS",
-            "sub" : []
-        },
-        {
-            "label" : "API Documentation",
-            "url" : "api-documentation",
-            "icon" : "book-open",
-            "permission" : "",
             "sub" : []
         },
         {
