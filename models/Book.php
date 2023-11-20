@@ -22,12 +22,14 @@ class Book extends Model {
 
     public function selectPaginatedBooks( int $page = 1, $limit = 10 )
     {
-        $pg = $page - 1;
+        $pg = ( $page == 1 ? $page - 1 : $page );
         $tbl = $this->tablename;
+        $allRecords = $this->rawQuery("SELECT * FROM $tbl")->getResults();
+        $totalPages = ceil($allRecords['count'] / $limit);
         $rows = $this->rawQuery("SELECT * FROM $tbl LIMIT $pg, $limit")->getResults();
         $records = [
             'current_page' => $page,
-            'total_records' => null, // to figure out
+            'total_pages' => $totalPages,
             'limit' => $limit
         ];
         $records['results'] = $rows['data'];
