@@ -16,6 +16,9 @@
                 <ol class="mt-2">
                     <li>Create <code>.env</code> file on the root directory. Copy the content of <code>sample.env</code> file to <code>.env</code> file.</li>
                     <li>You can bring any changes to the configuration file as you require.</li>
+                    <li>Install all the Composer packages using the following command.
+                        <p class="p-2"><code>composer install</code></p>
+                    </li>
                     <li><strong>Important!</strong> For this project there are some directories we ignore in the repository. To create those directories, use the following command.
                         <p class="p-2"><code>mkdir cache storage logs</code></p>
                     </li>
